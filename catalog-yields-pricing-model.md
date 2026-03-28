@@ -140,5 +140,5 @@ flowchart TB
 
 - Fork vs reference when reusing a published ítem.
 - Moderation and attribution for the public/general library.
-- Whether rendimiento defaults are **per studio**, **per project**, or both.
+- Whether rendimiento defaults are **per studio**, **per project**, or both. neither: per item
 - How “Otros” is structured (single rubro vs policy).
