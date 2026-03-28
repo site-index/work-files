@@ -9,6 +9,10 @@ alwaysApply: false
 - **Stack**: Vite, React, TypeScript. Package root is `fe/` (see `fe/package.json`).
 - Prefer existing UI patterns, Radix/shadcn-style components, and project scripts (`npm run dev`, `npm run full-check` from `fe/`).
 
+## UI language
+
+All **user-visible** strings in the app MUST be **Spanish (es-AR)**. File names, routes, types, and props remain **English** (see workspace rule _English file and path names_). Use `es-AR` (or neutral Spanish consistent with the app) for `toLocaleString` / dates when formatting values shown to users.
+
 ## Mobile-first (default)
 
 Treat **narrow / touch** layouts as the baseline; widen and add complexity only at larger breakpoints.
