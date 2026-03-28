@@ -4,7 +4,7 @@ Canonical product definitions for **rubros**, **ítems** (cómputo / tasks), **r
 
 ---
 
-## 1. Three libraries (three different things)
+## 1. Three libraries (three different things). 4: insumos (library of preset materials, labor units and equipment units). on the other hand, i think rendimientos os not a library, but rather a parameter pf each item (not sure)
 
 | Library            | Question it answers                                                                        | Typical content                                                                                                                          |
 | ------------------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
