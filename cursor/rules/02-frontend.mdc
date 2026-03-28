@@ -1,5 +1,5 @@
 ---
-description: Frontend (Vite + React) — workspace package fe/
+description: Frontend (Vite + React, mobile-first) — workspace package fe/
 globs: fe/**
 alwaysApply: false
 ---
@@ -8,3 +8,12 @@ alwaysApply: false
 
 - **Stack**: Vite, React, TypeScript. Package root is `fe/` (see `fe/package.json`).
 - Prefer existing UI patterns, Radix/shadcn-style components, and project scripts (`npm run dev`, `npm run full-check` from `fe/`).
+
+## Mobile-first (default)
+
+Treat **narrow / touch** layouts as the baseline; widen and add complexity only at larger breakpoints.
+
+- **CSS / Tailwind**: Unprefixed classes are the mobile default. Use `sm:`, `md:`, `lg:` (and up) to _add_ or _change_ behavior for larger viewports — never assume desktop-first and strip down with `max-*` unless there is a strong reason.
+- **Layout**: Stack and scroll on small screens first; side-by-side, sidebars, and dense grids are enhancements at `sm` / `md` / `lg` as the rest of the app does.
+- **Interaction**: Prefer tap-friendly targets and spacing on the base styles; keyboard/mouse refinements can layer on larger breakpoints.
+- When unsure, **design and implement the smallest viewport first**, then scale up.
