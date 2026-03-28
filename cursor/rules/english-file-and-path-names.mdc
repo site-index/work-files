@@ -22,14 +22,24 @@ Technical exceptions (keep in English): code comments aimed at developers, Swagg
 
 This rule is about the split between **codebase identifiers + paths (English)** and **what the user reads (Spanish)**.
 
+## Database and persistence
+
+Use **English** for all **structural** identifiers in the database and in serialized data shapes:
+
+- **Prisma**: model names, field names, relation names, and `@@map` / `@map` targets unless mirroring an external system you do not control.
+- **SQL** (migrations, raw queries): table names, column names, index names, constraint names.
+- **JSON stored in DB** (`Json` / `JSONB` columns): **object keys** MUST be English (e.g. `lines`, `yieldPerPurchase`). Do not persist Spanish key names even if the product concept is “rendimiento” in UI copy.
+
+**Values** inside those structures (e.g. `name`, `description`, user-entered text) follow the same rules as elsewhere: **Spanish (es-AR)** when the value is user-facing content.
+
 ## Examples
 
-| Avoid                                      | Prefer                                                          |
-| ------------------------------------------ | --------------------------------------------------------------- |
-| `Certificacion.tsx`                        | `Certification.tsx`                                             |
-| `Dosificaciones.tsx`                       | `Dosages.tsx` or `MixDesigns.tsx` (match domain term)           |
-| `Computos.tsx`                             | `QuantityTakeoffs.tsx` or `BillOfQuantities.tsx`                |
-| `Supuestos.tsx`                            | `Assumptions.tsx`                                               |
+| Avoid                                      | Prefer                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------ |
+| `Certificacion.tsx`                        | `Certification.tsx`                                                |
+| `Dosificaciones.tsx`                       | `ItemYields.tsx` or `Yields.tsx` (match domain: catalog yields)    |
+| `Computos.tsx`                             | `QuantityTakeoffs.tsx` or `BillOfQuantities.tsx`                   |
+| `Supuestos.tsx`                            | `Assumptions.tsx`                                                  |
 | `computo-item/` (if naming is Spanish-led) | Use an English domain term (e.g. `budget-line/`, `quantity-item/`) |
 
 When renaming existing files, update imports, lazy routes, and tests in the same change.
@@ -38,3 +48,4 @@ When renaming existing files, update imports, lazy routes, and tests in the same
 
 - When adding or renaming files, choose **English** names that match the domain (borrow standard industry English where applicable).
 - Do not introduce new Spanish filenames or directories; if a feature must be named after a Spanish concept, use an accurate English equivalent or a widely used industry term.
+- When adding Prisma models, migrations, or JSON blobs in the DB, keep **identifiers and JSON keys** in English; use Spanish only in user-visible **values**.
