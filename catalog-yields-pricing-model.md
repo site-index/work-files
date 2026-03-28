@@ -30,6 +30,8 @@ All three are **seeded by the app** (OOTB) and **highly customizable** by the us
 4. Fundaciones
 5. …
 
+each item has a longer paragraph describing the scope of the item. This are the legal conditions of the item, for example.: si los Razo de placa de yeso de 9 mm con estructura de perfilería tradicional con uña perimetral incluye armado, emplacado en encintado y tomado de juntas. The Name of The item is a one sentence summary of the longer scope. It would be desirable to have an AI suggestion for the items name given the description introduced by the user or picked from the item Library, and later modified. The list of the items scope description will later for the project briefing but this is also a valuable resource to establish how the item is measured, and the. rendimientos. The library of items included in the presets of the app covers at least 90% of a standard construction project in Argentina. The user starts with a blank project. That is a project that has no items but just have all the rubros. The user than at each item picking it from the library as it is or picking an item that already exist and adjust need or creating an item from scratch it would be disabled that the user starts by writing the items scope description because that helps determining the measurement units the justification, the materials, labor, and equipment it requires.
+
 **Example ítems under “Fundaciones”:**
 
 - 4.1 Zapata corrida de ladrillo común con azotado hidrófugo
