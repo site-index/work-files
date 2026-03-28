@@ -45,7 +45,7 @@ All three are **seeded by the app** (OOTB) and **highly customizable** by the us
 - OOTB ítems should ship with a sensible **materials** rendimiento at minimum; users will still override often.
 - **Why heavy customization:** (1) not every ítem can be pre-listed; (2) the same ítem can have **very different** yields in real projects.
 
-**Important:** Resource lines use **their own units**, which are **not** the ítem’s BOQ unit (e.g. ítem in m² of slab; cement in bags of 25 kg).
+**Important:** Resource lines use **their own units**, which are **not** the ítem’s **unit of measure on site** (e.g. ítem in m² of slab; cement in bags of 25 kg).
 
 ---
 
@@ -127,7 +127,7 @@ flowchart TB
 
 ## 8. One-line summary
 
-**Rubro** = fixed shelf. **Ítem** = certifiable task line with a **BOQ unit**. **Rendimiento** = M + MO + Eq **per ítem unit**. **Precio** = cost **per resource unit**. **Sharing** = OOTB for all + private overrides + optional feed into a **general ítem library**.
+**Rubro** = fixed shelf. **Ítem** = certifiable task line with an **item unit** (unit of measure on site). **Rendimiento** = M + MO + Eq **per ítem unit**. **Precio** = cost **per resource unit**. **Sharing** = OOTB for all + private overrides + optional feed into a **general ítem library**.
 
 ---
 

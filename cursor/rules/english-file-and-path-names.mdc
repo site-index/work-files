@@ -30,7 +30,7 @@ This rule is about the split between **codebase identifiers + paths (English)** 
 | `Dosificaciones.tsx`                       | `Dosages.tsx` or `MixDesigns.tsx` (match domain term)           |
 | `Computos.tsx`                             | `QuantityTakeoffs.tsx` or `BillOfQuantities.tsx`                |
 | `Supuestos.tsx`                            | `Assumptions.tsx`                                               |
-| `computo-item/` (if naming is Spanish-led) | Use an English domain term (e.g. `boq-line/`, `quantity-item/`) |
+| `computo-item/` (if naming is Spanish-led) | Use an English domain term (e.g. `budget-line/`, `quantity-item/`) |
 
 When renaming existing files, update imports, lazy routes, and tests in the same change.
 

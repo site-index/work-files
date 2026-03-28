@@ -15,12 +15,12 @@ This file is the **delivery-oriented** companion to [product-manifest.md](./prod
 
 ### Phase 1 — Core “Art” engine (budget and certification)
 
-- Cómputos / BOQ structure (manual input first).
-- Three-pillar APU (materials, labor, equipment) with simple dosificaciones and unit conversions.
+- Cómputos / **budget lines** (manual input first).
+- APU with **category breakdown** (materials, labor, equipment), simple **mezclas** and unit conversions.
 - Global progress certification.
 - Basic assumption generation (e.g. spend vs. budget signals).
 - **PWA foundation:** installable app, offline-capable baseline (local-first / sync when online).
-- **Preset library:** starter BOQ / mix-design items with standard dosifications (manifest asks for this in Phase 1).
+- **Preset library:** starter budget-line / mix templates with standard yields (manifest asks for this in Phase 1).
 
 ### Phase 2 — “Science” engine (context and assumptions)
 
@@ -44,11 +44,11 @@ _Accurate as of the last manual update to this section; cross-check `fe/` and `b
 **In place today**
 
 - Studio **slug** tenancy (`X-Studio-Slug`; subdomain also supported in dev-style hosts).
-- Projects, **BOQ items** (three amounts + ownership toggles + per-line currency and USD rate kind), **mix designs** (user-defined components / conversions in UI), **certifications**, **assumptions** (list + resolve), dashboard aggregates.
-- **Declared actual spend** on `Project` (`actualSpendToDate`): editable in app settings; when it exceeds the summed BOQ budget, the API opens a **`BudgetAlert`** (`SPEND_EXCEEDS_BUDGET`) and a matching **`Assumption`** (payload tagged for idempotency). BOQ create/patch and project PATCH re-run the check.
-- **BOQ ↔ mix design (Phase 1):** optional `mixDesignId` on each line; list API includes mix name; FE picker on Cómputos.
+- Projects, **budget lines** (`BudgetLine` — three category amounts + ownership toggles + per-line currency and USD rate kind), **mix designs** (user-defined components / conversions in UI), **certifications**, **assumptions** (list + resolve), dashboard aggregates.
+- **Declared actual spend** on `Project` (`actualSpendToDate`): editable in app settings; when it exceeds the summed budget from lines, the API opens a **`BudgetAlert`** (`SPEND_EXCEEDS_BUDGET`) and a matching **`Assumption`** (payload tagged for idempotency). Budget-line create/patch and project PATCH re-run the check.
+- **Budget line ↔ mix design (Phase 1):** optional `mixDesignId` on each line; list API includes mix name; FE picker on líneas de presupuesto.
 - **PWA baseline:** `vite-plugin-pwa` (manifest + precache shell + `autoUpdate` SW). API/data remain online-first until a sync design exists.
-- Simple **truth signal:** `isFlaky` on BOQ lines (boolean), not yet a full reliability scale.
+- Simple **truth signal:** `isFlaky` on budget lines (boolean), not yet a full reliability scale.
 
 **Not yet in the repo (or only stubbed)**
 
@@ -66,8 +66,8 @@ Order can change; this matches “close the manifest gap” without pretending P
 
 1. **Assumptions ranking** — store user weights (money / time / impact), sort/filter API + UI; keep Pareto as default bias.
 2. **Offline / sync** — move PWA beyond precache: queued writes and conflict handling for API data.
-3. **Reliability scale** — evolve past boolean `isFlaky` toward graded quality (schema + API + dashboard/BOQ visuals).
-4. **Starter catalog** — preset BOQ / mix-design templates when you decide how to ship them (e.g. seeds, admin UI, or external tooling).
+3. **Reliability scale** — evolve past boolean `isFlaky` toward graded quality (schema + API + dashboard / budget-line visuals).
+4. **Starter catalog** — preset budget-line / mix templates when you decide how to ship them (e.g. seeds, admin UI, or external tooling).
 
 ---
 
