@@ -43,7 +43,7 @@ _Accurate as of the last manual update to this section; cross-check `fe/` and `b
 
 **In place today**
 
-- Studio **slug** tenancy (`X-Studio-Slug`; subdomain also supported in dev-style hosts).
+- Studio **slug** tenancy (`X-Studio-Slug` on API requests).
 - Projects, **budget lines** (`BudgetLine` — three category amounts + ownership toggles + per-line currency and USD rate kind), **mix designs** (user-defined components / conversions in UI), **certifications**, **assumptions** (list + resolve), dashboard aggregates.
 - **Declared actual spend** on `Project` (`actualSpendToDate`): editable in app settings; when it exceeds the summed budget from lines, the API opens a **`BudgetAlert`** (`SPEND_EXCEEDS_BUDGET`) and a matching **`Assumption`** (payload tagged for idempotency). Budget-line create/patch and project PATCH re-run the check.
 - **Budget line ↔ mix design (Phase 1):** optional `mixDesignId` on each line; list API includes mix name; FE picker on líneas de presupuesto.
