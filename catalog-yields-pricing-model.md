@@ -42,6 +42,9 @@ In any case, when an item is completed (mainly by setting its quantity in the pr
 - 4.3 Bases aisladas de hormigón armado
 - 4.4 Viga de fundación de hormigón armado
 
+there are special types of items (like system families) where the user has very specific customization tools. for example, in the items related to concrete, it would be nice to have dossification tools and also tools specially designed to compute rebar and reinforcement. other special items are those relating to different types of blocks for walls or different types of tile finishing.
+
+
 ---
 
 ## 3. Rendimientos (per ítem)
