@@ -1,6 +1,6 @@
 # Project Status & Manifesto: SITE INDEX
 
-_(Construction intelligence SaaS — Argentina-first, studio subdomain tenancy.)_
+_(Construction intelligence SaaS — Argentina-first; canonical app at https://app.siteindex.com; studio slug tenancy.)_
 
 ## 1. The Vision & "The Spirit" (For Clients & Stakeholders)
 
@@ -21,7 +21,7 @@ We protect profit margins by focusing fiercely on the **Pareto Principle (10/90)
 
 - **Name:** SITE INDEX.
 - **Primary market:** Argentina. **Multi-currency** is required, including USD with **distinct treatment of informal vs. official contexts** (_USD negro / USD blanco_, also spoken of as _blue / oficial_) — product and reporting must allow both where the business needs them.
-- **Tenancy:** One subdomain per studio (e.g. `studio-one.siteindex.com`, `studio-two.siteindex.com`).
+- **Tenancy:** Canonical app URL **https://app.siteindex.com**. Studios are identified by **slug** (not per-studio subdomains), e.g. `X-Studio-Slug` on API calls — one app hostname for DNS/TLS and simpler client onboarding.
 - **Roles:** Role-based access will exist; specific roles and permissions are **TBD**. keep it simple (project manager and member)
 - **Assumptions & conflicts:** Concrete rules (e.g. schedule vs. manual assignment) are refined during implementation. **Guiding principle:** anything the system _assumes_ is always **surfaced in the Assumptions tab** for asynchronous human review—not silently overwritten without a trail. The **Assumptions tab** is a **primary, high-volume flow** (users spend a lot of time here); the backlog is **sorted by a user-entered mix** of **money**, **time** and **impact**.
 - **Dosificaciones (v1):** User-entered only (no imported standards catalog in Phase 1). why not a base library of dosified items? all out-of-the-box items should already be dosified.
