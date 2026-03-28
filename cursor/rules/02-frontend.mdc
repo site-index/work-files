@@ -1,0 +1,10 @@
+---
+description: Frontend (Vite + React) — workspace package fe/
+globs: fe/**
+alwaysApply: false
+---
+
+# Frontend (`fe/`)
+
+- **Stack**: Vite, React, TypeScript. Package root is `fe/` (see `fe/package.json`).
+- Prefer existing UI patterns, Radix/shadcn-style components, and project scripts (`npm run dev`, `npm run full-check` from `fe/`).

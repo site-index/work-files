@@ -1,0 +1,10 @@
+---
+description: Backend (NestJS + Prisma) — workspace package be/
+globs: be/**
+alwaysApply: false
+---
+
+# Backend (`be/`)
+
+- **Stack**: NestJS, Prisma, PostgreSQL. Package root is `be/` (see `be/package.json`).
+- Follow module layout under `be/src/`; run Prisma and Nest commands from `be/`.

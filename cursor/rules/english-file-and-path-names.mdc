@@ -1,0 +1,28 @@
+---
+description: Source files and directories must use English names only (no Spanish or other non-English identifiers in paths).
+alwaysApply: true
+---
+
+# English file and path names
+
+All **new** source files, routes, and directories MUST use **English** names. Do not use Spanish (or other natural languages) in file names, folder names, or route path segments.
+
+- **Applies to:** `*.ts`, `*.tsx`, `*.js`, `*.jsx`, and any directory under `src/`, `be/`, `fe/`, etc.
+- **UI copy and user-facing strings** may be localized (e.g. Spanish for an `es-AR` app). This rule is only about **codebase identifiers** and **paths**.
+
+## Examples
+
+| Avoid | Prefer |
+|--------|--------|
+| `Certificacion.tsx` | `Certification.tsx` |
+| `Dosificaciones.tsx` | `Dosages.tsx` or `MixDesigns.tsx` (match domain term) |
+| `Computos.tsx` | `QuantityTakeoffs.tsx` or `BillOfQuantities.tsx` |
+| `Supuestos.tsx` | `Assumptions.tsx` |
+| `computo-item/` (if naming is Spanish-led) | Use an English domain term (e.g. `quantity-item/`, `boq-item/`) |
+
+When renaming existing files, update imports, lazy routes, and tests in the same change.
+
+## Agent actions
+
+- When adding or renaming files, choose **English** names that match the domain (borrow standard industry English where applicable).
+- Do not introduce new Spanish filenames or directories; if a feature must be named after a Spanish concept, use an accurate English equivalent or a widely used industry term.
