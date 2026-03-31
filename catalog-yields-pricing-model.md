@@ -88,6 +88,21 @@ So: **ítems and rendimientos are not “only dosificaciones shared.”** The me
 
 ---
 
+## 6.1. Catalog stability and production changes
+
+The **Prisma seed** assigns **stable-looking `id`s from array position** for global **`WorkCategory`** rows (and similarly for **`MeasureUnit`** and catalog **`Item`**). **Reordering, deleting, or inserting in the middle** of those seed arrays can **change existing `id`s** and **break foreign keys** (or orphan rows). Rubro / ítem **`code`** values derived from Spanish **names** can also change if the label changes, which is equally dangerous once data points at those rows.
+
+**Implementation (DB):** **`Item`** holds product-wide ítem names + rubro. **`ItemStudio`** stores the studio’s default **`components`** (rendimiento JSON) per ítem. **`ItemYield`** is a **per-project snapshot** copied when the project is created (and lazy-filled for legacy projects); editing **`ItemStudio` does not mutate existing `ItemYield` rows**. If the studio default changes after a snapshot, the app may open an **`Assumption`** of type **`STUDIO_YIELD_STALE`** (Spanish copy in payload).
+
+**Rules:**
+
+- Treat seed lists as **append-only** after a database has been initialized, unless you ship a **data migration** that updates dependent rows.
+- For **new** global rubros or measure units in deployed environments, prefer the operator API: **`POST /v1/work-categories`** and **`POST /v1/measure-units`** with header **`X-Catalog-Write-Secret`** matching server env **`CATALOG_WRITE_SECRET`** (no studio JWT on those routes). Use a **new, unique English `code`** and never recycle a code for a different meaning.
+
+See also the **STABILITY CONTRACT** banner in `be/prisma/seed.ts` and the long descriptions on those POST operations in Swagger (`/docs`).
+
+---
+
 ## 7. Relationship diagram
 
 ```mermaid
