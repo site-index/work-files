@@ -47,7 +47,7 @@ _Accurate as of the last manual update to this section; cross-check `fe/` and `b
 - Projects, **budget lines** (`BudgetLine` — three category amounts + ownership toggles + per-line currency and USD rate kind), **mix designs** (user-defined components / conversions in UI), **certifications**, **assumptions** (list + resolve), dashboard aggregates.
 - **Declared actual spend** on `Project` (`actualSpendToDate`): editable in app settings; when it exceeds the summed budget from lines, the API opens a **`BudgetAlert`** (`SPEND_EXCEEDS_BUDGET`) and a matching **`Assumption`** (payload tagged for idempotency). Budget-line create/patch and project PATCH re-run the check.
 - **Budget line ↔ mix design (Phase 1):** optional `mixDesignId` on each line; list API includes mix name; FE picker on líneas de presupuesto.
-- **PWA baseline:** `vite-plugin-pwa` (manifest + precache shell + `autoUpdate` SW). API/data remain online-first until a sync design exists.
+- **PWA baseline:** `vite-plugin-pwa` (manifest + precache shell + `prompt` SW + bottom update bar in Spanish). API/data remain online-first until a sync design exists.
 - Simple **truth signal:** `isFlaky` on budget lines (boolean), not yet a full reliability scale.
 
 **Not yet in the repo (or only stubbed)**

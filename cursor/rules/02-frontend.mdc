@@ -21,3 +21,11 @@ Treat **narrow / touch** layouts as the baseline; widen and add complexity only 
 - **Layout**: Stack and scroll on small screens first; side-by-side, sidebars, and dense grids are enhancements at `sm` / `md` / `lg` as the rest of the app does.
 - **Interaction**: Prefer tap-friendly targets and spacing on the base styles; keyboard/mouse refinements can layer on larger breakpoints.
 - When unsure, **design and implement the smallest viewport first**, then scale up.
+
+## PWA and service worker updates
+
+- **Default:** `vite-plugin-pwa` uses **`registerType: 'prompt'`** with **`injectRegister: false`** and React **`useRegisterSW`** from `virtual:pwa-register/react`. The UI lives in [`fe/src/components/PwaUpdateBanner.tsx`](fe/src/components/PwaUpdateBanner.tsx): a **fixed bottom bar** (not a modal), **safe-area** padding, and **large tap targets** (`min-h-11`). Users reload only when they tap **Actualizar**; **Más tarde** dismisses until the next update check.
+- **User-visible copy** for update flows MUST stay **Spanish (es-AR)**. Do not switch this banner to English for developer convenience.
+- **When to use `autoUpdate` instead:** only if product explicitly prefers silent activation and accepts possible surprise reloads; document the change in [`work-files/adr/0001-pwa-update-strategy.md`](work-files/adr/0001-pwa-update-strategy.md) and adjust the banner/registration code.
+- **True “force upgrade”** (e.g. breaking API) is **not** handled by the service worker alone: use an app-level minimum client/API version and a **blocking** screen if needed; keep that separate from the PWA refresh bar unless you intentionally merge the flows.
+- **Icons:** Web app manifest and `apple-touch-icon` use **PNG** sizes derived from [`fe/public/pwa-icon.svg`](fe/public/pwa-icon.svg) (`pwa-192.png`, `pwa-512.png`, `apple-touch-icon.png`). Regenerate PNGs from the SVG if the mark changes; re-check **Add to Home Screen** on iOS and Android after visual changes.
