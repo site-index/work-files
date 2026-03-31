@@ -13,7 +13,7 @@ All **new** source files, routes, and directories MUST use **English** names. Do
 
 For this product, **user-visible text MUST be in Spanish** appropriate for **Argentina (es-AR)**:
 
-- **Frontend (`fe/`)**: labels, buttons, placeholders, empty states, page titles and subtitles in the app, validation and form errors, toasts, dialog copy, table headers, tooltips, `aria-label` / accessible names when they expose words to users.
+- **Frontend (`fe/`)**: labels, buttons, placeholders, empty states, page titles and subtitles in the app, validation and form errors, toasts, dialog copy, table headers, tooltips, and any other text the user actually reads on screen.
 - **Backend (`be/`)**: error messages, alert text, and any other strings that are **returned to the client and shown to end users** (not logs or internal dev messages) should be in the same Spanish (es-AR) voice unless the user explicitly requests another locale.
 
 **Do not** replace Spanish UI with English “for consistency” with English code identifiers. Identifiers stay English; copy stays Spanish.

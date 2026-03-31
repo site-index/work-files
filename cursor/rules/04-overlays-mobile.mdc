@@ -1,0 +1,37 @@
+---
+description: Overlays (dialogs, sheets, popovers) — mobile-first, minimal portal hacks
+globs:
+  - fe/src/**/*.tsx
+---
+
+# Overlays and mobile-first layout
+
+## Default pattern for long forms in modals
+
+- **Fixed chrome**: title row + optional description stay in a **non-scrolling** header.
+- **Single scroll root**: one inner region (`flex-1 min-h-0 overflow-y-auto`) holds the form fields.
+- **Fixed footer**: primary actions (submit) in a **non-scrolling** footer with top border.
+- **Safe areas**: use `env(safe-area-inset-*)` on the modal panel edges where content meets notches/home indicators.
+- **Viewport height**: prefer `max-h-[min(90vh,100dvh)]` on the panel so iOS dynamic viewport behaves predictably.
+
+Prefer **Headless UI `Dialog`** for new full-screen-style overlays that match this pattern (see `CreateBudgetLineDialog`, `EditBudgetLinePricingSheet`, `CreateItemYieldDialog`, `CreateProjectDialog`).
+
+## Radix `Sheet` / `Dialog` (shadcn wrappers)
+
+- If you keep Radix `Sheet`, treat the sheet content as **`flex flex-col max-h-[100dvh] min-h-0 overflow-hidden`** and put **one** scrollable child inside — avoid `overflow-y-auto` on the whole panel plus nested portaled popovers.
+- **`SelectContent` `container`**: only pass a custom portal `container` when body portaling is broken inside a clipped ancestor — document why in a short comment. Do not thread refs from parent sheets “just in case”.
+
+## `PopoverContent`
+
+- Optional `container` prop is supported for rare cases (popover inside clipped scroll). Default remains body portal.
+
+## Before merging overlay work
+
+Run `npm run full-check --prefix fe` and manually smoke on **iOS Safari** and **Android Chrome**:
+
+- Open / close / backdrop tap; dismiss works as expected
+- Scroll **inside** the modal only (background should not scroll)
+- With **on-screen keyboard** open, primary actions (e.g. submit) stay reachable
+- Open any **select** or suggestion list: taps register, no clipping
+
+User-visible copy stays **Spanish (es-AR)**; file and symbol names stay **English** (see project rules).
