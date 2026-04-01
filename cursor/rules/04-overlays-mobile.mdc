@@ -16,12 +16,15 @@ globs:
 
 Prefer **Headless UI `Dialog`** for new full-screen-style overlays that match this pattern (see `CreateBudgetLineDialog`, `EditBudgetLinePricingSheet`, `CreateItemYieldDialog`, `CreateProjectDialog`).
 
-## Radix `Sheet` / `Dialog` (shadcn wrappers)
+## Headless UI `Dialog` and sheet-like panels
 
-- If you keep Radix `Sheet`, treat the sheet content as **`flex flex-col max-h-[100dvh] min-h-0 overflow-hidden`** and put **one** scrollable child inside — avoid `overflow-y-auto` on the whole panel plus nested portaled popovers.
-- **`SelectContent` `container`**: only pass a custom portal `container` when body portaling is broken inside a clipped ancestor — document why in a short comment. Do not thread refs from parent sheets “just in case”.
+- Treat panel content as **`flex flex-col max-h-[100dvh] min-h-0 overflow-hidden`** (or `max-h-[min(90vh,100dvh)]` per above) and put **one** scrollable child inside — avoid `overflow-y-auto` on the whole panel plus nested portaled overlays that fight clipping.
 
-## `PopoverContent`
+## Select (`Listbox`) and portaling
+
+- Headless **Listbox** options render in a portal by default. Only override portal/`anchor` behavior when body portaling breaks inside a clipped ancestor — document why in a short comment. Do not thread refs from parent dialogs “just in case”.
+
+## `PopoverContent` (custom)
 
 - Optional `container` prop is supported for rare cases (popover inside clipped scroll). Default remains body portal.
 

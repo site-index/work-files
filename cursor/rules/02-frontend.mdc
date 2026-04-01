@@ -7,7 +7,7 @@ alwaysApply: false
 # Frontend (`fe/`)
 
 - **Stack**: Vite, React, TypeScript. Package root is `fe/` (see `fe/package.json`).
-- Prefer existing UI patterns, Radix/shadcn-style components, and project scripts (`npm run dev`, `npm run full-check` from `fe/`).
+- Prefer existing UI patterns: **Headless UI** plus shared primitives under `fe/src/components/ui/` (Tailwind; class patterns often mirror shadcn-style naming). Use project scripts (`npm run dev`, `npm run full-check` from `fe/`). See [ADR 0002](../../adr/0002-frontend-ui-stack.md) for the UI stack summary.
 
 ## UI language
 
