@@ -18,6 +18,12 @@ For this product, **user-visible text MUST be in Spanish** appropriate for **Arg
 
 **Do not** replace Spanish UI with English “for consistency” with English code identifiers. Identifiers stay English; copy stays Spanish.
 
+### Guardrail: existing UI copy
+
+- If a string is user-visible and already in Spanish, **keep it in Spanish**.
+- Never translate existing FE/BE user-facing copy to English unless the user explicitly asks for English product copy.
+- If you rename technical identifiers to English (files, symbols, DB columns), do it without changing the visible Spanish UX text.
+
 Technical exceptions (keep in English): code comments aimed at developers, Swagger/OpenAPI **technical** field names, enum **values** that are protocol/DB identifiers, and third-party library strings you cannot control.
 
 This rule is about the split between **codebase identifiers + paths (English)** and **what the user reads (Spanish)**.
