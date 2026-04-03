@@ -18,3 +18,4 @@ This project optimizes for **speed of delivery**. Treat this as the top constrai
 - Default to the **current** canonical approach for the stack (framework APIs, module layout, config shape).
 - If a choice is “safe for old callers” vs “simpler for new code,” choose **simpler for new code** unless told otherwise.
 - Do not block refactors with hypothetical external consumers; this repo accepts breakage.
+- For UI polish tasks, prefer low-effort reuse of existing patterns (especially mobile-first layouts) and avoid broad desktop redesigns unless explicitly requested.
