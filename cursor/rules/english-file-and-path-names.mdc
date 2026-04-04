@@ -28,6 +28,19 @@ Technical exceptions (keep in English): code comments aimed at developers, Swagg
 
 This rule is about the split between **codebase identifiers + paths (English)** and **what the user reads (Spanish)**.
 
+## Technical identifiers (strict)
+
+All non-user-facing technical identifiers MUST be English across FE and BE, including:
+
+- variable names, function names, class names, prop names, type/interface field names
+- DTO fields, API contract field names, OpenAPI technical field descriptions
+- test fixture keys, test helper names, and constants
+- persisted JSON keys (including `Json`/`JSONB` payloads) and enum/protocol values used by code
+
+Do not introduce dual-language compatibility aliases unless the user explicitly requests it. If cleanup is requested, remove old-language aliases instead of keeping both key paths.
+
+Examples to avoid in technical identifiers/keys (non-exhaustive): `rubro`, `montoARS`, `impacto`.
+
 ## Database and persistence
 
 Use **English** for all **structural** identifiers in the database and in serialized data shapes:
