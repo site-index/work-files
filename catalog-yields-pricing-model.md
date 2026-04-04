@@ -135,6 +135,8 @@ Reading order:
 3. Use project snapshot `ItemYield` + `ItemYieldLine`.
 4. Combine with `StudioResourcePrice` to cost budget lines.
 
+For project phase behavior (Budget mode -> Construction mode), baseline freeze policy, and delta handling (`economias`, `demasias`, and price variation deltas), see [budget-construction-phases.md](./budget-construction-phases.md).
+
 ---
 
 ## 2) Product vision (not implemented yet)
