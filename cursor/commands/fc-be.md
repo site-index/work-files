@@ -18,6 +18,16 @@ From the workspace root (`site-index`):
 npm run full-check --prefix be
 ```
 
+## When only a few files are flagged
+
+Format specific backend files from the workspace root:
+
+```bash
+npm run format:files --prefix be -- src/common/duration-ms.ts src/main.ts src/app.module.ts
+```
+
+You can replace those paths with any backend file list. Prefer this script over raw `npx prettier` when your current directory may not be `be/`.
+
 ## Notes
 
 - Do not treat the task as done until the command exits with status 0.

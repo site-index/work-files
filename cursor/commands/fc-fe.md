@@ -18,6 +18,16 @@ From the workspace root (`site-index`):
 npm run full-check --prefix fe
 ```
 
+## When only a few files are flagged
+
+Format specific frontend files from the workspace root:
+
+```bash
+npm run format:files --prefix fe -- src/components/CreateBudgetLineDialog.tsx src/components/SidebarContent.tsx src/pages/budget-lines/helpers.ts
+```
+
+You can replace those paths with any frontend file list. Prefer this script over raw `npx prettier` when your current directory may not be `fe/`.
+
 ## Notes
 
 - Do not treat the task as done until the command exits with status 0.
