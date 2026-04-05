@@ -9,10 +9,24 @@ This project optimizes for **speed of delivery**. Treat this as the top constrai
 
 ## Non-negotiables
 
-- **No legacy methods**: Do not introduce, preserve, or recommend deprecated APIs, compatibility shims, dual code paths, or “we support both old and new” patterns unless the user explicitly asks for backward compatibility.
+- **No legacy methods**: Do not introduce or preserve deprecated APIs, compatibility shims, or “we support both old and new” patterns in first-party code.
 - **Breaking changes are allowed**: Prefer clean, modern interfaces. Remove obsolete entry points, flags, and indirection instead of layering adapters to keep old behavior alive.
 - **Delete over wrap**: When replacing behavior, remove the old implementation rather than keeping it “just in case.”
 - **No quality shortcuts**: Velocity is not an excuse to bypass quality checks (e.g. disabling eslint rules, suppressing lint/type errors, or similar cheats) to force a change through.
+
+## Scope and definitions
+
+- **Scope**: This rule applies to first-party runtime code and contracts in `fe/` and `be/`, including DTOs, API payloads, persisted JSON keys, and shared app-facing types.
+- **Compatibility layer**: Any code whose main purpose is to accept, translate, or maintain both an old and new contract shape for callers you control.
+- **Dual code path**: Two implementations of the same app behavior kept active in parallel for compatibility reasons.
+- **Migration exception**: Time-bounded DB/schema transitions are allowed only when they include an explicit removal follow-up in the same change.
+- **Out of scope**: Third-party dependency deprecations are handled by dependency upgrade work, not by adding new local compatibility wrappers.
+
+## Exception policy
+
+- Backward compatibility is out of scope by default.
+- Allow compatibility work only when the user explicitly requests it in the same task and names both the consumer and removal horizon.
+- Without that explicit request, delete old paths immediately instead of preserving adapters.
 
 ## For the agent
 
@@ -20,4 +34,5 @@ This project optimizes for **speed of delivery**. Treat this as the top constrai
 - If a choice is “safe for old callers” vs “simpler for new code,” choose **simpler for new code** unless told otherwise.
 - Do not block refactors with hypothetical external consumers; this repo accepts breakage.
 - Treat “velocity” as permission for clean breaking changes, not permission to weaken guardrails.
+- Reject requests to keep legacy fields “just in case” unless the user provides a concrete compatibility scope and removal date.
 - For UI polish tasks, prefer low-effort reuse of existing patterns (especially mobile-first layouts) and avoid broad desktop redesigns unless explicitly requested.
